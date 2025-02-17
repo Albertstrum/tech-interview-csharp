@@ -18,6 +18,10 @@ namespace Vehicles.Api.Repositories
             using (StreamReader r = new StreamReader("Repositories/vehicles.json"))
             {
                 string json = r.ReadToEnd();
+                var options = new JsonSerializerOptions
+                {
+                    Converters = { new Models.Converters.DateTimeConverter() }
+                };
                 _vehicles = JsonSerializer.Deserialize<List<Vehicle>>(json) ?? new List<Vehicle>();
             }
         }

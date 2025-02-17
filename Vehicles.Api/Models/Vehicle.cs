@@ -32,6 +32,7 @@ namespace Vehicles.Api.Models
         public int EngineSize { get; set; }
 
         [JsonPropertyName("date_first_reg")]
+        [JsonConverter(typeof(Models.Converters.DateTimeConverter))]
         public DateTime DateFirstReg { get; set; }
 
         [JsonPropertyName("mileage")]
