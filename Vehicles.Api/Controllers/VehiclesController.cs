@@ -15,5 +15,15 @@ namespace Vehicles.Api.Controllers
             _logger = logger;
             _vehiclesRepository = vehiclesRepository;
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            _logger.LogInformation("Getting all vehicles");
+
+            var vehicles = _vehiclesRepository.GetAll();
+
+            return Ok(vehicles);
+        }
     }
 }
