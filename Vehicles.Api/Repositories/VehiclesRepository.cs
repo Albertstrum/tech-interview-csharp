@@ -6,7 +6,7 @@ using Vehicles.Api.Models;
 namespace Vehicles.Api.Repositories
 {
 
-    public class VehiclesRepository
+    public class VehiclesRepository : IVehiclesRepository
     {
         List<Vehicle> _vehicles;
         public VehiclesRepository()
