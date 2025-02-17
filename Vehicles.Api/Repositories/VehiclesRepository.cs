@@ -8,9 +8,13 @@ namespace Vehicles.Api.Repositories
 
     public class VehiclesRepository : IVehiclesRepository
     {
+        private readonly ILogger<VehiclesRepository> _logger;
+
         List<Vehicle> _vehicles;
-        public VehiclesRepository()
+        public VehiclesRepository(ILogger<VehiclesRepository> logger)
         {
+            _logger = logger;
+
             using (StreamReader r = new StreamReader("Repositories/vehicles.json"))
             {
                 string json = r.ReadToEnd();
