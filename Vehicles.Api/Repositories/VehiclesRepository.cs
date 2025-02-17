@@ -1,21 +1,10 @@
 ﻿using System.Text.Json;
 using System;
 using System.Text.Json.Serialization;
+using Vehicles.Api.Models;
 
 namespace Vehicles.Api.Repositories
 {
-
-    public class Vehicle
-    {
-        [JsonPropertyName("make")]
-        public string Make { get; set; }
-        [JsonPropertyName("model")]
-        public string Model { get; set; }
-        [JsonPropertyName("trim")]
-        public string Trim { get; set; }
-        [JsonPropertyName("colour")]
-        public string Colour { get; set; }
-    }
 
     public class VehiclesRepository
     {
