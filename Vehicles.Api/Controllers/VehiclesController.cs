@@ -4,7 +4,7 @@ using Vehicles.Api.Repositories;
 namespace Vehicles.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class VehiclesController : ControllerBase
     {
         private readonly ILogger<VehiclesController> _logger;
@@ -16,8 +16,10 @@ namespace Vehicles.Api.Controllers
             _vehiclesRepository = vehiclesRepository;
         }
 
+        // Pagination would be useful to avoid returning all vehicles in one big response
         [HttpGet]
-        public IActionResult Get()
+        [ActionName("GetAll")]
+        public IActionResult GetAll()
         {
             _logger.LogInformation("Getting all vehicles");
 
