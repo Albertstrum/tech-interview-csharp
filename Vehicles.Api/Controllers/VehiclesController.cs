@@ -4,6 +4,12 @@ using Vehicles.Api.Repositories;
 
 namespace Vehicles.Api.Controllers
 {
+    // TODO: Add OAuth
+    // TODO: Add Rate limiting to prevent abuse
+    // TODO: Add API versioning
+    // TODO: Add Swagger documentation (example response, request, etc.)
+    // TODO: Pagination for large requests
+    // TODO: Implement OData model and more query options (Price/year range, multiple colours/models, etc)
     [ApiController]
     [Route("[controller]/[action]")]
     public class VehiclesController : ControllerBase
@@ -17,7 +23,6 @@ namespace Vehicles.Api.Controllers
             _vehiclesRepository = vehiclesRepository;
         }
 
-        // Pagination would be useful to avoid returning all vehicles in one big response
         [HttpGet]
         [ActionName("GetAll")]
         public IActionResult GetAll()
@@ -39,7 +44,6 @@ namespace Vehicles.Api.Controllers
             }
         }
 
-        // Replace with OData implementation for more advanced queries
         [HttpGet]
         [ActionName("GetByQuery")]
         public IActionResult GetByQuery([FromQuery]Vehicle vehicle)

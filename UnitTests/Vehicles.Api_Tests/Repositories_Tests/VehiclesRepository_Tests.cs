@@ -5,6 +5,7 @@ using Vehicles.Api.Repositories;
 
 namespace UnitTests
 {
+    // TODO: Add test cases for edge cases and error handling
     public class VehiclesRepository_Tests
     {
         private readonly Mock<ILogger<VehiclesRepository>> _loggerMock;

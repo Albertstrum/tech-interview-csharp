@@ -7,6 +7,7 @@ using Vehicles.Api.Repositories;
 
 namespace UnitTests.Controllers
 {
+    // TODO: Add test cases for edge cases and error handling
     public class VehiclesController_Tests
     {
         private readonly Mock<ILogger<VehiclesController>> _loggerMock;

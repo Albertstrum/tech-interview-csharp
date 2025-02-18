@@ -2,6 +2,8 @@
 
 namespace Vehicles.Api.Models
 {
+    // TODO: Add validation attributes to the properties
+    // TODO: Add IVehicle interface and abstract base class in case we need to add more vehicle types
     public class Vehicle
     {
         [JsonPropertyName("price")]

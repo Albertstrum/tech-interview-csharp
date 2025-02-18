@@ -6,7 +6,8 @@ using System.Linq;
 
 namespace Vehicles.Api.Repositories
 {
-
+    // TODO: Replace hardcoded file with a database
+    // TODO: Add caching support
     public class VehiclesRepository : IVehiclesRepository
     {
         private readonly ILogger<VehiclesRepository> _logger;

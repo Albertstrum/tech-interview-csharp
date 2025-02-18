@@ -3,6 +3,8 @@ using System.Text.Json;
 
 namespace Vehicles.Api.Models.Converters
 {
+    // TODO: Make generic somehow, so it can be reused for other date formats
+    // TODO: Add unit tests because DateTime has a million ways it likes to explode! 
     public class DateTimeConverter : JsonConverter<DateTime>
     {
         private readonly string _format = "dd/MM/yyyy";
