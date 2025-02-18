@@ -24,9 +24,19 @@ namespace Vehicles.Api.Controllers
         {
             _logger.LogInformation("Getting all vehicles");
 
-            var vehicles = _vehiclesRepository.GetAll();
+            try
+            {
+                var vehicles = _vehiclesRepository.GetAll();
 
-            return Ok(vehicles);
+                return Ok(vehicles);
+            }
+            catch (Exception ex)
+            {
+                var errorMsg = "An error occurred while getting all vehicles";
+                _logger.LogError(ex, errorMsg);
+
+                return StatusCode(500, errorMsg);
+            }
         }
 
         // Replace with OData implementation for more advanced queries
@@ -36,9 +46,19 @@ namespace Vehicles.Api.Controllers
         {
             _logger.LogInformation("Getting vehicles by query");
 
-            var filteredVehicles = _vehiclesRepository.GetByQuery(vehicle);
+            try
+            {
+                var filteredVehicles = _vehiclesRepository.GetByQuery(vehicle);
 
-            return Ok(filteredVehicles);
-        }
+                return Ok(filteredVehicles);
+            }
+            catch (Exception ex)
+            {
+                var errorMsg = "An error occurred while getting vehicles by query";
+                _logger.LogError(ex, errorMsg);
+
+                return StatusCode(500, errorMsg);
+            }
+         }
     }
 }

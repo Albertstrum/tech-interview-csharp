@@ -15,15 +15,23 @@ namespace Vehicles.Api.Repositories
         public VehiclesRepository(ILogger<VehiclesRepository> logger)
         {
             _logger = logger;
+            _vehicles = new List<Vehicle>();
 
-            using (StreamReader r = new StreamReader("Repositories/vehicles.json"))
+            try
             {
-                string json = r.ReadToEnd();
-                var options = new JsonSerializerOptions
+                using (StreamReader r = new StreamReader("Repositories/vehicles.json"))
                 {
-                    Converters = { new Models.Converters.DateTimeConverter() }
-                };
-                _vehicles = JsonSerializer.Deserialize<List<Vehicle>>(json) ?? new List<Vehicle>();
+                    string json = r.ReadToEnd();
+                    var options = new JsonSerializerOptions
+                    {
+                        Converters = { new Models.Converters.DateTimeConverter() }
+                    };
+                    _vehicles = JsonSerializer.Deserialize<List<Vehicle>>(json) ?? new List<Vehicle>();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error reading vehicles.json");
             }
         }
 
